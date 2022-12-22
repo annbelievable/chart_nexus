@@ -13,3 +13,6 @@
 
 ## To be completed
 1. The ability to toggle between night mode and day mode
+
+## Notes
+1. Currently the interval is set to 5 seconds, for the highlight to look as if they are blinking, set the interval to 1 second. 
