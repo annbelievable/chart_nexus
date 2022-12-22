@@ -44,8 +44,6 @@ function getData( appendData ) {
     } );
 }
 
-// this function is still work in progress and is not completed
-// once completed, it can be further refactored
 function updateTable(data) {
 	let existing = $('body').find('#list-top-volume').children();
 	let rows = "";
