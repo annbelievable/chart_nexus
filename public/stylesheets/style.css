@@ -23,8 +23,7 @@ button.active {
   background-color: #FFFF00;
 }
 
-tr {
+table tr {
   flex: 1 1 auto;
   border-bottom: 1px solid #000;
 }
-
