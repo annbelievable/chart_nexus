@@ -229,3 +229,11 @@ function intToString(num) {
 	}
 	return (num / si[index].v).toFixed(2).replace(/\.0+$|(\.[0-9]*[1-9])0+$/, "$1") + si[index].s;
 }
+
+$('input[type="checkbox"][name="darkmode"]').change(function() {
+	if(this.checked) {
+		$('body').addClass('dark-mode');
+	}else{
+		$('body').removeClass('dark-mode');
+	}
+});

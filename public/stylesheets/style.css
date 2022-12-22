@@ -1,6 +1,14 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+
+  background-color: white;
+  color: black;
+}
+
+.dark-mode {
+  background-color: black;
+  color: white;
 }
 
 a {
@@ -21,9 +29,15 @@ button.active {
 
 .yellow {
   background-color: #FFFF00;
+  color: #000;
 }
 
 table tr {
   flex: 1 1 auto;
   border-bottom: 1px solid #000;
+}
+
+.dark-mode table tr {
+  flex: 1 1 auto;
+  border-bottom: 1px solid #fff;
 }
