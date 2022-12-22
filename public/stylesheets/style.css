@@ -1,0 +1,30 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+button.active {
+  color: #00B7FF !important;
+}
+
+.nu_positive_txt {
+  color: #00FF00 !important;
+}
+
+.nu_negative_txt {
+  color: #FF0000 !important;
+}
+
+.yellow {
+  background-color: #FFFF00;
+}
+
+tr {
+  flex: 1 1 auto;
+  border-bottom: 1px solid #000;
+}
+

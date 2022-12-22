@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title><%= title %></title>
+		<link rel='stylesheet' href='/stylesheets/style.css' />
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+	</head>
+	<body>
+
+		<div style="position: absolute; overflow: hidden; inset: 0px;">
+			<div class="quotes-fp-inner" style="position: absolute; inset: 0px;">
+				<div class="quotes-fp-header container-fluid widget_header_bg">
+					<div style="height: 100%;" class="row flex-nowrap align-items-center">
+						<div class="col-6 d-flex">
+							<div class="row d-flex flex-nowrap">
+								<div class="col-12 d-flex flex-nowrap align-items-center justify-content-start"><div class="gwt-Label quotes-l-title widget_title" style="white-space: nowrap;">Delayed Quotes</div></div>
+							</div>
+						</div>
+						<div class="col-6 d-flex align-items-center justify-content-end">
+							<div class="d-flex">
+								<div class="d-flex align-items-center justify-content-center">
+									<div class="d-flex align-items-center btn-group" style="box-shadow: none;">
+										<select name="market" id="market">
+											<option id="sel_listing_2" value="2">BURSA</option>
+											<option id="sel_listing_0" value="0">SGX</option>
+											<option id="sel_listing_3" value="3">NASDAQ</option>
+										</select>
+										<!-- 
+										<button type="button" class="gwt-Button nu_content5 btn btn-xs dropdown-toggle ripple-surface" data-mdb-toggle="dropdown" aria-expanded="false" style="padding: 0px; box-shadow: none; width: auto; height: auto;">
+											SGX
+										</button>
+										<ul class="dropdown-menu dropdown-menu-end dropdown-menu-xs" style="min-width: 80px; max-width: 200px; background: white;">
+											<li>
+												<table cellspacing="0" cellpadding="0">
+													<tbody>
+														<tr>
+															<td style="vertical-align: top;" align="left"><button type="button" class="gwt-Button" style="background-color: transparent; border-width: 0px;">SGX</button></td>
+														</tr>
+														<tr>
+															<td style="vertical-align: top;" align="left"><button type="button" class="gwt-Button" style="background-color: transparent; border-width: 0px;">BURSA</button></td>
+														</tr>
+													</tbody>
+												</table>
+											</li>
+										</ul>
+										 -->
+									</div>
+								</div>
+								<!-- 
+								<div class="d-flex align-items-center justify-content-center">
+									<button type="button" class="gwt-Button widget_switch_menu content_change_menu" style="background-color: transparent;" title="Switch Panel"></button>
+									<button type="button" class="gwt-Button chart-north-widget-icon collapse-right-panel" style="outline: none; border: 0px none; box-shadow: none; background-color: transparent;" title="Collapse Panel"></button>
+								</div>
+								 -->
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="quotes-fp-submenu">
+					<div class="d-flex nu_tab nu_bold flex-nowrap nu_content6">
+						<button type="button" class="gwt-Button quotes-btn-submenu nu_tab_01 col text_align_center active" data-value="0">
+							Top<br />
+							Volume
+						</button>
+						<button type="button" class="gwt-Button quotes-btn-submenu nu_tab_01 col text_align_center" data-value="1">
+							Top<br />
+							Gainers
+						</button>
+						<button type="button" class="gwt-Button quotes-btn-submenu nu_tab_01 col text_align_center" data-value="2">
+							Top<br />
+							Losers
+						</button>
+					</div>
+				</div>
+				
+				<div style="position: relative; min-width: 20px; min-height: 20px; width: 100%; height: 86%;" class="quotes-rlp-cell-list quotes-rlp">
+					<div style="position: absolute; z-index: -32767; top: -20ex; width: 10em; height: 10ex; visibility: hidden;" aria-hidden="true">&nbsp;</div>
+					<div style="visibility: hidden; position: absolute; height: 100%; width: 100%; overflow: scroll; z-index: -1;">
+						<div style="height: 526px; width: 432px;"></div>
+					</div>
+					<div style="visibility: hidden; position: absolute; height: 100%; width: 100%; overflow: scroll; z-index: -1;">
+						<div style="width: 200%; height: 200%;"></div>
+					</div>
+					<div style="position: absolute; overflow: hidden; left: 0px; top: 0px; width: 100%; height: 100%;">
+						<div style="position: absolute; overflow: hidden; inset: 0px;" __gwtcellbasedwidgetimpldispatchingfocus="true" __gwtcellbasedwidgetimpldispatchingblur="true" class="quotes-dg">
+							<div style="position: absolute; left: 0px; width: 100%; top: 0px; min-width: 20px; min-height: 20px; overflow: hidden;">
+								<div style="visibility: hidden; position: absolute; height: 100%; width: 100%; overflow: scroll; z-index: -1;">
+									<div style="height: 145px; width: 432px;"></div>
+								</div>
+								<div style="visibility: hidden; position: absolute; height: 100%; width: 100%; overflow: scroll; z-index: -1;">
+									<div style="width: 200%; height: 200%;"></div>
+								</div>
+								<div>
+									<table style="table-layout: fixed; width: 100%;" cellspacing="0">
+										<colgroup>
+											<col style="width: 80px;">
+											<col style="width: 55px;">
+											<col style="width: 45px;">
+											<col style="width: 50px;">
+											<col style="width: 50px;">
+											<col style="width: 30px;">
+										</colgroup>
+										<thead>
+											<tr __gwt_header_row="0">
+												<th colspan="1" class="GJMS051CGK GJMS051CEK Class$S1489_gwt-uid-127_16716774239100 ncn_counter_table theme_color01 nu_content3" __gwt_column="column-gwt-uid-10566" __gwt_header="header-gwt-uid-10567">Stock<br>Code</th>
+												<th colspan="1" class="GJMS051CGK Class$S1489_gwt-uid-127_16716774239101 ncn_counter_table theme_color01 nu_content3" __gwt_column="column-gwt-uid-10568" __gwt_header="header-gwt-uid-10569">Last<br>Vol</th>
+												<th colspan="1" class="GJMS051CGK Class$S1489_gwt-uid-127_16716774239102 ncn_counter_table theme_color01 nu_content3" __gwt_column="column-gwt-uid-10570" __gwt_header="header-gwt-uid-10571">+/-<br>%Chng</th>
+												<th colspan="1" class="GJMS051CGK Class$S1489_gwt-uid-127_16716774239103 ncn_counter_table theme_color01 nu_content3" __gwt_column="column-gwt-uid-10572" __gwt_header="header-gwt-uid-10573">Buy<br>Buy Vol</th>
+												<th colspan="1" class="GJMS051CGK Class$S1489_gwt-uid-127_16716774239104 ncn_counter_table theme_color01 nu_content3" __gwt_column="column-gwt-uid-10574" __gwt_header="header-gwt-uid-10575">Sell<br>Sell Vol</th>
+												<th colspan="1" class="GJMS051CGK GJMS051COK" __gwt_column="column-gwt-uid-10576" __gwt_header="header-gwt-uid-10577"></th>
+											</tr>
+										</thead>
+									</table>
+								</div>
+							</div>
+							<div style="position: absolute; left: 0px; width: 100%; bottom: 0px; min-width: 20px; min-height: 20px; overflow: hidden; display: none;">
+								<div style="visibility: hidden; position: absolute; height: 100%; width: 100%; overflow: scroll; z-index: -1;">
+									<div style="height: 100px; width: 100px;"></div>
+								</div>
+								<div style="visibility: hidden; position: absolute; height: 100%; width: 100%; overflow: scroll; z-index: -1;">
+									<div style="width: 200%; height: 200%;"></div>
+								</div>
+							</div>
+							<div style="position: absolute; left: 0px; width: 100%; overflow: hidden; top: 45px; height: 381px;">
+								<div class="GJMS051CDT" style="position: relative; overflow: hidden; height: 100%;">
+									<div style="position: absolute; z-index: -32767; top: -20ex; width: 10em; height: 10ex; visibility: hidden;" aria-hidden="true">&nbsp;</div>
+									<div style="position: absolute; overflow: hidden; inset: 0px -17px -17px 0px;">
+										<div style="position: absolute; overflow: scroll; inset: 0px;">
+											<div style="position: relative; min-width: 20px; min-height: 20px; display: block;" class="GJMS051COL">
+												<div style="visibility: hidden; position: absolute; height: 100%; width: 100%; overflow: scroll; z-index: -1;">
+													<div style="height: 1462px; width: 432px;"></div>
+												</div>
+												<div style="visibility: hidden; position: absolute; height: 100%; width: 100%; overflow: scroll; z-index: -1;">
+													<div style="width: 200%; height: 200%;"></div>
+												</div>
+												<table style="table-layout: fixed; width: 100%;" cellspacing="0">
+													<colgroup>
+														<col style="width: 80px;">
+														<col style="width: 55px;">
+														<col style="width: 45px;">
+														<col style="width: 50px;">
+														<col style="width: 50px;">
+														<col style="width: 30px;">
+													</colgroup>
+													<!-- LIST HERE -->
+													<tbody id="list-top-volume">
+													</tbody>
+												</table>
+											</div>
+										</div>
+									</div>
+									<div style="position: absolute; overflow: hidden; right: 0px; bottom: 0px; width: 17px; height: 0px;">
+										<div class="GJMS051CET" style="position: absolute; inset: 0px;"></div>
+									</div>
+									<div style="position: absolute; overflow: hidden; top: 0px; right: 0px; bottom: 0px; width: 17px;">
+										<div class="GJMS051CKT GJMS051COL" style="width: 17px; position: absolute; inset: 0px;">
+											<div class="GJMS051CJT custom-scrollbar-css GJMS051CHT">
+												<div style="height: 1362px;"></div>
+											</div>
+										</div>
+									</div>
+									<div style="position: absolute; overflow: hidden; inset: 0px; display: none;">
+										<div class="GJMS051CPT GJMS051COL" style="height: 17px; position: absolute; inset: 0px;">
+											<div class="GJMS051COT custom-scrollbar-css GJMS051CFT">
+												<div class="GJMS051CNT"></div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</body>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+	<script src="http://localhost:3000/javascripts/chart.js" crossorigin="anonymous"></script>
+</html>
