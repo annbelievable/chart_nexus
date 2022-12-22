@@ -1,3 +1,4 @@
+// declaring global variables
 let resourceUrl = "http://194.233.80.156:9091/Dummy/quotes?";
 let marketIds = "023";
 let body = $("#list-top-volume");
@@ -43,6 +44,8 @@ function getData( appendData ) {
     } ).done( );
 }
 
+// this function is still work in progress and is not completed
+// once completed, it can be further refactored
 function updateTable(data) {
 	let existing = $('body').find('#list-top-volume').children('tr');
 
@@ -185,8 +188,8 @@ $('select[name="market"]').on('change', function (e) {
 });
 
 setInterval(function() {
-    getData(false);
-}, 1 * 1000);
+    getData(true);
+}, 5 * 1000);
 
 window.onload = function () {
 	getData(true);
