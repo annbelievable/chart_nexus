@@ -56,10 +56,15 @@ function updateTable(data) {
 		let changePct = change/item.previous*100;
 		let changeSign = change > 0 ? "+" : "";
 		let divClass = change > 0 ? "nu_positive_txt" : "nu_negative_txt";
+
+		let vol = `${item.last.toFixed(2)}<br>${intToString(item.volume)}`;
+		let changeText = `${changeSign}${change.toFixed(3)}<br>${changeSign}${changePct.toFixed(1)}%`;
 		let buy = `${item.buy_price.toFixed(3)}<br>${intToString(item.buy_volume)}`;
 		let sell = `${item.sell_price.toFixed(3)}<br>${intToString(item.sell_volume)}`;
 
 		let updatedStock = "";
+		let updatedVol = "";
+		let updatedChange = "";
 		let updatedBuy = "";
 		let updatedSell = "";
 
@@ -67,16 +72,24 @@ function updateTable(data) {
 			updatedStock = "yellow";
 		}
 
-		if(existing[i].attributes['data-buy'] != buy){
+		if( $(`.${i}_1`).html().trim() != vol){
+			updatedVol = "yellow";
+		}
+
+		if( $(`.${i}_2`).html().trim() != changeText){
+			updatedChange = "yellow";
+		}
+
+		if( $(`.${i}_3`).html().trim() != buy){
 			updatedBuy = "yellow";
 		}
 
-		if(existing[i].attributes['data-sell'] != sell){
+		if( $(`.${i}_4`).html().trim() != sell){
 			updatedSell = "yellow";
 		}
 
 		let row = `
-		<tr id="${item.stockcode}" data-buy="${buy}" data-sell="${sell}">
+		<tr id="${item.stockcode}">
 			<td>
 				<div style="outline-style:none;" tabindex="0">
 					<div class="quotes-col-stock-code ${i}_0 ${updatedStock}">
@@ -87,28 +100,30 @@ function updateTable(data) {
 			</td>
 			<td>
 				<div style="outline-style:none;">
-					<div class="quotes-col-last-vol ${i}_1">
-						<div class="${divClass}">${item.last.toFixed(2)}<br>${intToString(item.volume)}</div>
+					<div class="quotes-col-last-vol ${i}_1 ${divClass} ${updatedVol}">
+						${vol}
 					</div>
 				</div>
 			</td>
 			<td>
 				<div style="outline-style:none;">
-					<div class="quotes-col-chng-pect ${i}_2">
-						<div class="nu_positive_txt">
-							<div class="${divClass}">${changeSign}${change.toFixed(3)}<br>${changeSign}${changePct.toFixed(1)}%</div>
-						</div>
+					<div class="quotes-col-chng-pect ${i}_2 ${divClass} ${updatedChange}">
+						${changeText}
 					</div>
 				</div>
 			</td>
 			<td>
-				<div style="outline-style:none;" class="${updatedBuy}">
-					<div class="quotes-col-buy-vol ${i}_3">${item.buy_price.toFixed(3)}<br>${intToString(item.buy_volume)}</div>
+				<div style="outline-style:none;">
+					<div class="quotes-col-buy-vol ${i}_3 ${updatedBuy}">
+						${buy}
+					</div>
 				</div>
 			</td>
 			<td>
-				<div style="outline-style:none;" class="${updatedSell}">
-					<div class="quotes-col-sell-vol ${i}_4">${item.sell_price.toFixed(3)}<br>${intToString(item.sell_volume)}</div>
+				<div style="outline-style:none;">
+					<div class="quotes-col-sell-vol ${i}_4 ${updatedSell}">
+						${sell}
+					</div>
 				</div>
 			</td>
 			<td></td>
@@ -128,10 +143,8 @@ function populateTable(data) {
 		let changePct = change/item.previous*100;
 		let changeSign = change > 0 ? "+" : "";
 		let divClass = change > 0 ? "nu_positive_txt" : "nu_negative_txt";
-		let buy = `${item.buy_price.toFixed(3)}<br>${intToString(item.buy_volume)}`;
-		let sell = `${item.sell_price.toFixed(3)}<br>${intToString(item.sell_volume)}`;
 		let row = `
-		<tr id="${item.stockcode}" data-buy="${buy}" data-sell="${sell}">
+		<tr id="${item.stockcode}">
 			<td>
 				<div style="outline-style:none;" tabindex="0">
 					<div class="quotes-col-stock-code ${i}_0">
@@ -142,28 +155,30 @@ function populateTable(data) {
 			</td>
 			<td>
 				<div style="outline-style:none;">
-					<div class="quotes-col-last-vol ${i}_1">
-						<div class="${divClass}">${item.last.toFixed(2)}<br>${intToString(item.volume)}</div>
+					<div class="quotes-col-last-vol ${i}_1 ${divClass}">
+						${item.last.toFixed(2)}<br>${intToString(item.volume)}
 					</div>
 				</div>
 			</td>
 			<td>
 				<div style="outline-style:none;">
-					<div class="quotes-col-chng-pect ${i}_2">
-						<div class="nu_positive_txt">
-							<div class="${divClass}">${changeSign}${change.toFixed(3)}<br>${changeSign}${changePct.toFixed(1)}%</div>
-						</div>
+					<div class="quotes-col-chng-pect ${i}_2 ${divClass}">
+						${changeSign}${change.toFixed(3)}<br>${changeSign}${changePct.toFixed(1)}%
 					</div>
 				</div>
 			</td>
 			<td>
 				<div style="outline-style:none;">
-					<div class="quotes-col-buy-vol ${i}_3">${buy}</div>
+					<div class="quotes-col-buy-vol ${i}_3">
+						${item.buy_price.toFixed(3)}<br>${intToString(item.buy_volume)}
+					</div>
 				</div>
 			</td>
 			<td>
 				<div style="outline-style:none;">
-					<div class="quotes-col-sell-vol ${i}_4">${sell}</div>
+					<div class="quotes-col-sell-vol ${i}_4">
+						${item.sell_price.toFixed(3)}<br>${intToString(item.sell_volume)}
+					</div>
 				</div>
 			</td>
 			<td></td>
