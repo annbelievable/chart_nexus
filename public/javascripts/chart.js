@@ -1,7 +1,7 @@
 // declaring global variables
 let resourceUrl = "http://194.233.80.156:9091/Dummy/quotes?";
 let marketIds = "023";
-let body = $("#list-top-volume");
+let listBody = $("#list-top-volume");
 
 function getMarketId() {
 	let value = $('select[name="market"]').val();
@@ -20,7 +20,7 @@ function getListId() {
 }
 
 function clearData() {
-	body.html("");
+	listBody.html("");
 }
 
 function getData( appendData ) {
@@ -41,13 +41,14 @@ function getData( appendData ) {
         , error   : function(){
             alert( 'Failed to fetch result, please try again.' );
         }
-    } ).done( );
+    } );
 }
 
 // this function is still work in progress and is not completed
 // once completed, it can be further refactored
 function updateTable(data) {
-	let existing = $('body').find('#list-top-volume').children('tr');
+	let existing = $('body').find('#list-top-volume').children();
+	let rows = "";
 
 	for (let i = 0; i < data.length; i++) {
 		item = data[i];
@@ -66,11 +67,11 @@ function updateTable(data) {
 			updatedStock = "yellow";
 		}
 
-		if(existing[i].attributes['data-buy']  != buy){
+		if(existing[i].attributes['data-buy'] != buy){
 			updatedBuy = "yellow";
 		}
 
-		if(existing[i].attributes['data-sell']  != sell){
+		if(existing[i].attributes['data-sell'] != sell){
 			updatedSell = "yellow";
 		}
 
@@ -112,10 +113,12 @@ function updateTable(data) {
 			</td>
 			<td></td>
 		</tr>
-		`
-
-		// i need a way to update the children
+		`;
+		
+		rows += row;
 	};
+	clearData();
+	listBody.append($(rows));
 }
 
 function populateTable(data) {
@@ -165,9 +168,9 @@ function populateTable(data) {
 			</td>
 			<td></td>
 		</tr>
-		`
+		`;
 
-		body.append($(row));
+		listBody.append($(row));
 	};
 }
 
@@ -188,7 +191,7 @@ $('select[name="market"]').on('change', function (e) {
 });
 
 setInterval(function() {
-    getData(true);
+    getData(false);
 }, 5 * 1000);
 
 window.onload = function () {

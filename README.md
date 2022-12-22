@@ -7,9 +7,9 @@
 1. The project can be accessed at the url: http://localhost:3000/
 
 ## Features
-1. User can view listing from different market by using the select dropdown for market
+1. User can view listing from different market by using the select dropdown for market.
 1. User can choose to view "Top Volume", "Top Gainers" and "Top Losers" of a market by clicking on the 3 tabs shown.
+1. Updated rows in the listing will be highlighted in yellow colour.
 
 ## To be completed
-1. The ability to highlight updated rows in the listing
 1. The ability to toggle between night mode and day mode
